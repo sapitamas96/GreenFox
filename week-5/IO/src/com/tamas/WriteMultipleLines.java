@@ -17,22 +17,22 @@ public class WriteMultipleLines {
         // és minden sorban az legyen írva: 'alma'.
         // Ha a függvény nem tud írni a fájlba, ne dobjon semmilyen hibaüzenetet.
 
-        writeInFile("src\\com\\tamas\\my-file.txt", "alma", 5);
+
+        try {
+            writeInFile("src\\com\\tamas\\my-file.txt", "alma", 5);
+        } catch (NoSuchFileException e) {
+            System.err.println("Unable to write file: my-file.txt");
+        } catch (IOException e) {
+            System.err.println("Unexpected error!");
+        }
     }
 
-    public static void writeInFile(String path, String text, int times) {
+    public static void writeInFile(String path, String text, int times) throws IOException{
         Path filePath = Paths.get(path);
         List<String> lines = new ArrayList<>();
         for (int i = 0; i < times; i++) {
             lines.add(text);
         }
-        try {
-            Files.write(filePath, lines, StandardOpenOption.APPEND);
-
-        } catch (NoSuchFileException e) {
-            System.err.println("Unable to write file: " + filePath.getFileName());
-        } catch (IOException e) {
-            System.err.println("Unexpected error!");
-        }
+        Files.write(filePath, lines, StandardOpenOption.APPEND);
     }
 }
