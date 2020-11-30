@@ -1,8 +1,7 @@
 package com.tamas;
 
 public class Counter {
-
-    private int counter;
+    private int counter = 0;
 
     public Counter() {}
 
