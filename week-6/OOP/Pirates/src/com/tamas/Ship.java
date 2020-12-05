@@ -30,19 +30,66 @@ public class Ship {
     }
 
     public boolean battle(Ship opponent) {
-          /*TODO:
-               - The loser crew has a random number of losses (deaths).
-               - The winner captain and crew has a party, including a random number of rum :)
-          */
-        return calculateScore() > opponent.calculateScore();
+        boolean isWinner = calculateScore() > opponent.calculateScore();
+        boolean flag = false;
+
+        if (isWinner) {
+            party();
+            opponent.casualties();
+        } else {
+            casualties();
+            opponent.party();
+        }
+
+        return isWinner;
+    }
+
+    private void party() {
+        int consumedRum = randomNumber(10);
+
+        for (int i = 0; i < consumedRum; i++) {
+            captain.drinkSomeRum();
+        }
+
+        for (Pirate pirate : crew) {
+            consumedRum = randomNumber(10);
+            for (int i = 0; i < consumedRum; i++) {
+                if(pirate.isAlive()) {
+                    pirate.drinkSomeRum();
+                }
+            }
+        }
+    }
+
+    private void casualties() {
+        int numberOfCasualties = randomNumber(getNumberOfPirates());
+        int counter = numberOfCasualties;
+
+        if (grimReaper(numberOfCasualties)) {
+            captain.die();
+            counter--;
+        }
+
+        while (counter > 0) {
+            for (Pirate pirate : crew) {
+                if (pirate.isAlive() && grimReaper(numberOfCasualties)) {
+                    pirate.die();
+                    counter--;
+                }
+            }
+        }
+    }
+
+    private boolean grimReaper(int numberOfCasualties) {
+        return numberOfCasualties / (getNumberOfPirates())* 100 <= randomNumber(100);
     }
 
     private String randomPirateName() {
         Path filePath = Paths.get("src\\com\\tamas\\pirateNames.txt");
-        int randomNumber = randomNumber(50);
+        int randomIndex = randomNumber(50) - 1;
         try {
             List<String> lines = Files.readAllLines(filePath);
-            return lines.get(randomNumber);
+            return lines.get(randomIndex);
 
         } catch (IOException e) {
             return null;
@@ -51,7 +98,7 @@ public class Ship {
 
     private int randomNumber(int number) {
         Random random = new Random();
-        return random.nextInt(number);
+        return random.nextInt(number) + 1;
     }
 
     private int getNumberOfPirates() {

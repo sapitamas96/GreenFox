@@ -25,11 +25,9 @@ public class Pirate {
 
     public void drinkSomeRum() {
         if (!isAlive) {
-            System.out.println("He is dead!");
             return;
         }
 
-        System.out.println("Pirate is drinking rum!");
         numberOfDrinks++;
         if (numberOfDrinks < 3) {
             levelOfIntoxication = LevelOfIntoxication.LOW;

@@ -3,8 +3,16 @@ package com.tamas;
 public class Main {
 
     public static void main(String[] args) {
-	    Ship ship = new Ship("Marie");
-	    ship.fillShip();
-        System.out.println(ship);
+	    Ship marie = new Ship("Marie");
+	    marie.fillShip();
+
+        Ship catherine = new Ship("Catherine");
+        catherine.fillShip();
+
+        System.out.println(marie.battle(catherine));
+        System.out.println(marie);
+        System.out.println(catherine);
+
+
     }
 }
