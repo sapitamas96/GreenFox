@@ -1,4 +1,12 @@
 package com.greenfoxacademy.music;
 
-public class Instrument {
+public abstract class Instrument {
+
+    protected String nameOfInstrument;
+
+    abstract void play();
+
+    public Instrument() {
+        this.nameOfInstrument = Instrument.class.getSimpleName();
+    }
 }

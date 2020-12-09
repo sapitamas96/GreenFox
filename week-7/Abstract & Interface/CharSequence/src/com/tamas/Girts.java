@@ -1,10 +1,10 @@
 package com.tamas;
 
-public class Gnirts implements CharSequence{
+public class Girts implements CharSequence{
 
     private String text;
 
-    public Gnirts(String text) {
+    public Girts(String text) {
         this.text = new StringBuilder(text).reverse().toString();
 
     }

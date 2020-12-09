@@ -3,9 +3,9 @@ package com.tamas;
 public class Main {
 
     public static void main(String[] args) {
-        Gnirts gnirts = new Gnirts("example");
-        System.out.println(gnirts.charAt(1));
-        System.out.println(gnirts.charAt(2));
+        Girts girts = new Girts("example");
+        System.out.println(girts.charAt(1));
+        System.out.println(girts.charAt(2));
 
         ShiftedCharSequence shifter = new ShiftedCharSequence("example", 2);
         System.out.println(shifter.charAt(0));
