@@ -11,7 +11,7 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<>();
 
     public static void readInLocations() throws IOException {
-        try (Scanner scanner = new Scanner(new FileReader("src\\com\\tamas\\locations.txt"))) {
+        try (Scanner scanner = new Scanner(new FileReader("locations.txt"))) {
             while (scanner.hasNext()) {
                 scanner.useDelimiter(",");
                 int tmpID = scanner.nextInt();
@@ -22,7 +22,7 @@ public class Locations implements Map<Integer, Location> {
 
         }
 
-        try (Scanner scanner = new Scanner(new BufferedReader(new FileReader("src\\com\\tamas\\directions.txt")))) {
+        try (Scanner scanner = new Scanner(new BufferedReader(new FileReader("directions.txt")))) {
             while (scanner.hasNext()) {
                 String[] array = scanner.nextLine().split(",");
                 int tmpLocID = Integer.parseInt(array[0]);
