@@ -38,7 +38,7 @@ public class Exploring {
                         loc = exits.get(vocabulary.get(exit));
                     }
                 }
-            }else if (exits.containsKey(tmpExit)) {
+            } else if (exits.containsKey(tmpExit)) {
                 loc = exits.get(tmpExit);
             } else {
                 System.out.println("No such exit!");
@@ -50,7 +50,7 @@ public class Exploring {
     private static void printExits(Map<String, Integer> exits) {
         System.out.print("Available exits: ");
         for (String exit : exits.keySet()) {
-            System.out.print(exit  + " ");
+            System.out.print(exit + " ");
         }
         System.out.println();
     }

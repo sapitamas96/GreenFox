@@ -8,9 +8,6 @@ public class Location {
     private String locationDescription;
     private Map<String, Integer> exits;
 
-    public Location() {
-    }
-
     public Location(int locationID, String locationDescription, Map<String, Integer> exits) {
         this.locationID = locationID;
         this.locationDescription = locationDescription;
@@ -21,10 +18,6 @@ public class Location {
             this.exits = new HashMap<>(exits);
         }
         this.exits.put("Q", 0);
-    }
-
-    public int getLocationID() {
-        return locationID;
     }
 
     public String getLocationDescription() {
