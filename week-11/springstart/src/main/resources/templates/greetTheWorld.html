@@ -5,6 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + ' Ez a weboldal ' + ${count} + ' alkalommal volt újratöltve az utolsó szerver újraindítás óta.'" />
+<p th:style ="'color:' + ${color} + ';' + 'font-size:' + ${size} + ';'" th:text="${hello}" />
 </body>
 </html>
