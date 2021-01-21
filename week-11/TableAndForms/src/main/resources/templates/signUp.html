@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+<form method="post" action=https://newsletter-ws.herokuapp.com/register>
+    <div class="container">
+        <label>Username : </label>
+        <input type="text" placeholder="Enter Username" name="name" required>
+        <label>Email : </label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+        <label>Password : </label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <label>Retype Password : </label>
+        <input type="password" placeholder="Retype Password" name="passwordConfirmation" required>
+        <button type="submit">Login</button>
+        <input type="checkbox" checked="checked"> Remember me
+        <button type="button" class="cancelbtn"> Cancel</button>
+        Forgot <a href="#"> password? </a>
+    </div>
+</form>
+</body>
+</html>
