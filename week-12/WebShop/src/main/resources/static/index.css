@@ -1,0 +1,78 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    padding-bottom: 0;
+    margin: 20px 30px 0;
+    color: rgb(1, 188, 212);
+    font-size: 3.5em;
+}
+
+hr#MyShop {
+    padding-top: 0;
+    margin: 0 30px 25px;
+    border: 1px solid rgb(1, 188, 212);
+}
+
+div#menu {
+    margin: 0 20px;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+div#menu button {
+    background-color: rgb(244, 67, 54);
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100%
+}
+
+div#searchBar {
+    margin: 20px 30px 0;
+}
+
+label {
+    display: block;
+    font: 1.5em 'Fira Sans', sans-serif;
+    color: rgb(255, 123, 100);
+}
+
+div#searchBar input {
+    font-size: 40px;
+    height: 68px;
+    border: 2px solid rgb(244, 67, 54);
+    border-radius: 10px;
+    vertical-align: middle;
+    width: 50%
+}
+
+div#searchBar button {
+    background-color: rgb(244, 67, 54);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+input::placeholder {
+    font-size: 40px;
+    vertical-align: bottom;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+}
