@@ -9,16 +9,35 @@
 <h1>My Shop</h1>
 <hr id="MyShop">
 <div id="menu">
-    <button onclick="document.location='webShop'">ONLY AVAILABLE</button>
-    <button onclick="document.location='webShop'">CHEAPEST FIRST</button>
-    <button onclick="document.location='webShop'">CONTAINS NIKE</button>
-    <button onclick="document.location='webShop'">AVERAGE STOCK</button>
-    <button onclick="document.location='webShop'">MOST EXPENSIVE AVAILABLE</button>
+    <button onclick="document.location='only-available'">ONLY AVAILABLE</button>
+    <button onclick="document.location='cheapest-first'">CHEAPEST FIRST</button>
+    <button onclick="document.location='contains-nike'">CONTAINS NIKE</button>
+    <button onclick="document.location='average-stock'">AVERAGE STOCK</button>
+    <button onclick="document.location='most-expensive'">MOST EXPENSIVE AVAILABLE</button>
 </div>
 <div id="searchBar">
     <label>Search for:</label>
     <input type="text" placeholder="Search...">
     <button onclick="document.location='webShop'">Search</button>
+</div>
+<div th:if="${table == true}">
+    <table>
+        <tr>
+            <th class="name">Name</th>
+            <th class="description">Description</th>
+            <th class="price">Price</th>
+            <th class="quantity">Quantity of stock</th>
+        </tr>
+        <tr th:each="shopItem: ${shopItems}">
+            <td class="name" th:text="${shopItem.name}"/>
+            <td class="description" th:text="${shopItem.description}"/>
+            <td class="price" th:text="${shopItem.price} + '.0 Kc'"/>
+            <td class="quantity" th:text="${shopItem.quantity}"/>
+        </tr>
+    </table>
+</div>
+<div th:unless="${table == true}" class="avg">
+    <p th:text="'Average stock: ' + ${avg} "/>
 </div>
 </body>
 </html>
