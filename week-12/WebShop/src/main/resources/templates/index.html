@@ -16,9 +16,11 @@
     <button onclick="document.location='most-expensive'">MOST EXPENSIVE AVAILABLE</button>
 </div>
 <div id="searchBar">
-    <label>Search for:</label>
-    <input type="text" placeholder="Search...">
-    <button onclick="document.location='webShop'">Search</button>
+    <form action="search" method="post">
+        <label>Search for:</label>
+        <input class="search" type="search" name="text" placeholder="Search...">
+        <input class="submit" type="submit" value="Search">
+    </form>
 </div>
 <div th:if="${table == true}">
     <table>

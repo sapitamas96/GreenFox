@@ -46,7 +46,7 @@ label {
     color: rgb(255, 123, 100);
 }
 
-div#searchBar input {
+div#searchBar input.search {
     font-size: 40px;
     height: 68px;
     border: 2px solid rgb(244, 67, 54);
@@ -55,9 +55,10 @@ div#searchBar input {
     width: 50%
 }
 
-div#searchBar button {
+div#searchBar input.submit {
+
+    border: 2px solid rgb(244, 67, 54);
     background-color: rgb(244, 67, 54);
-    border: none;
     color: white;
     font-size: 30px;
     padding: 20px;
