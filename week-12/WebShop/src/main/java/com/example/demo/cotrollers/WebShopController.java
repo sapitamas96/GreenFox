@@ -36,40 +36,35 @@ public class WebShopController {
     @GetMapping("cheapest-first")
     public String cheapestFirst(Model model) {
        model.addAttribute("table", true);
-       List<ShopItem> cheapestFirstList = dataBaseService.getShopItems().stream().sorted((o1, o2) -> o1.getPrice().compareTo(o2.getPrice())).collect(Collectors.toList());
-       model.addAttribute("shopItems", cheapestFirstList);
+       model.addAttribute("shopItems", dataBaseService.getCheapestFirst());
         return "index";
     }
 
     @GetMapping("contains-nike")
     public String containsNike(Model model) {
         model.addAttribute("table", true);
-        List<ShopItem> containsNikeList = dataBaseService.getShopItems().stream().filter(item -> item.getDescription().toLowerCase().contains("nike")).collect(Collectors.toList());
-        model.addAttribute("shopItems", containsNikeList);
+        model.addAttribute("shopItems", dataBaseService.getByDescription("nike"));
         return "index";
     }
 
     @GetMapping( "average-stock")
     public String averageStock(Model model) {
         model.addAttribute("table", false);
-        double avg = dataBaseService.getShopItems().stream().map(ShopItem::getQuantity).mapToInt(Integer::intValue).average().orElse(0);
-        model.addAttribute("avg", avg);
+        model.addAttribute("avg", dataBaseService.getAverageStock());
         return "index";
     }
 
     @GetMapping( "most-expensive")
     public String mostExpensive(Model model) {
         model.addAttribute("table", true);
-        ShopItem mostExpensiveItem = dataBaseService.getShopItems().stream().max((o1, o2) -> o1.getPrice().compareTo(o2.getPrice())).orElse(null);
-        model.addAttribute("shopItems", mostExpensiveItem);
+        model.addAttribute("shopItems", dataBaseService.getMostExpensive());
         return "index";
     }
 
     @PostMapping("search")
     public String search(String text, Model model) {
-        List<ShopItem> containsNikeList = dataBaseService.getShopItems().stream().filter(item -> item.getDescription().toLowerCase().contains(text)).collect(Collectors.toList());
         model.addAttribute("table", true);
-        model.addAttribute("shopItems", containsNikeList);
+        model.addAttribute("shopItems", dataBaseService.searchByNameAndDescription(text));
         return "index";
     }
 
