@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="/gfa/check/post" method="post">
+        <label>Search for:</label>
+        <input type="text" name="name" placeholder="Add a name">
+        <input type="submit" value="Check">
+    </form>
+    <div th:if="${student} != null">
+        <div th:if="${hasStudent}">
+            <p th:text="${student} + ' is in the list'"></p>
+        </div>
+        <div th:unless="${hasStudent}">
+            <p th:text="${student} + ' is NOT in the list'"></p>
+        </div>
+    </div>
+<a href="/gfa">index</a>
+</body>
+</html>
