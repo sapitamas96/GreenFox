@@ -1,4 +1,4 @@
-package com.example.classes.services;
+package com.example.scoolapp.services;
 
 public interface ClassroomService {
 }

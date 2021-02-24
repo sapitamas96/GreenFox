@@ -1,11 +1,10 @@
-package com.example.classes.contollers;
+package com.example.scoolapp.contollers;
 
-import com.example.classes.modells.Person;
-import com.example.classes.modells.Student;
-import com.example.classes.modells.Teacher;
-import com.example.classes.services.ClassroomService;
-import com.example.classes.services.StudentService;
-import com.example.classes.services.TeacherService;
+import com.example.scoolapp.modells.Student;
+import com.example.scoolapp.modells.Teacher;
+import com.example.scoolapp.services.ClassroomService;
+import com.example.scoolapp.services.StudentService;
+import com.example.scoolapp.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

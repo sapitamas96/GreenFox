@@ -1,7 +1,7 @@
-package com.example.classes.services;
+package com.example.scoolapp.services;
 
-import com.example.classes.modells.Student;
-import com.example.classes.repository.PersonRepo;
+import com.example.scoolapp.modells.Student;
+import com.example.scoolapp.repository.PersonRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

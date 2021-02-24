@@ -1,4 +1,4 @@
-package com.example.classes.modells;
+package com.example.scoolapp.modells;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
