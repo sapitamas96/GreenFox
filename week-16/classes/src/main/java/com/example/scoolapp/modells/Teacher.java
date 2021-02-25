@@ -1,16 +1,19 @@
 package com.example.scoolapp.modells;
 
+import com.example.scoolapp.dto.PersonCreationDTO;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+@DiscriminatorValue("Teacher")
+@Proxy(lazy = false)
 public class Teacher extends Person{
 
-    @OneToMany
-    private List<Student> students;
+    public Teacher(PersonCreationDTO dto) {
+        super(dto.getName(), dto.getAge(), Role.valueOf(dto.getRole().toUpperCase()));
+    }
 }

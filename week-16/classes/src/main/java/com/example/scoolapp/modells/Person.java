@@ -12,6 +12,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name = "personRole")
 public abstract class Person {
 
     @Id
@@ -21,4 +23,11 @@ public abstract class Person {
     private Integer age;
     @OneToOne
     private Classroom myClassroom;
+    private Role role;
+
+    public Person(String name, Integer age, Role role) {
+        this.name = name;
+        this.age = age;
+        this.role = role;
+    }
 }

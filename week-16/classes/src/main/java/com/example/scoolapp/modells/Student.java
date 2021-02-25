@@ -1,22 +1,19 @@
 package com.example.scoolapp.modells;
 
+import com.example.scoolapp.dto.PersonCreationDTO;
+import org.hibernate.annotations.Proxy;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 
 @Entity
+@DiscriminatorValue("Student")
+@Proxy(lazy = false)
 public class Student extends Person{
-
-    @ManyToOne
-    private Teacher teacher;
 
     public Student() {}
 
-    public Student(Long id, String name, Integer age, Classroom myClassroom, Teacher teacher) {
-        super(id, name, age, myClassroom);
-        this.teacher = teacher;
-    }
-
-    public Student(Teacher teacher) {
-        this.teacher = teacher;
+    public Student(PersonCreationDTO dto) {
+        super(dto.getName(), dto.getAge(), Role.valueOf(dto.getRole().toUpperCase()));
     }
 }

@@ -5,8 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <a href="/person/add">Add New Person</a>
-    <a href="/classroom/add">Add New Classroom</a>
-    <a href="/person/list">List of students and teachers</a>
+<h1>Add Student</h1>
+<form action="/classroom/add" method="post" th:object="${classroom}">
+    <label>Name:</label>
+    <input type="text" name="name">
+    <input type="submit" value="Add">
+</form>
 </body>
 </html>

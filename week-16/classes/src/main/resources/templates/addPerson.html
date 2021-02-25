@@ -6,11 +6,14 @@
 </head>
 <body>
 <h1>Add Student</h1>
-<form action="/student/add" method="post" th:object="${student}">
+<form action="/person/add" method="post" th:object="${dto}">
     <label>Name:</label>
     <input type="text" name="name">
     <label>Age:</label>
     <input type="number" name="age">
+    <select th:name="role">
+        <option th:each="role : ${roles}" th:value="${role}" th:text="${role}"></option>
+    </select>
     <input type="submit" value="Add">
 </form>
 </body>
