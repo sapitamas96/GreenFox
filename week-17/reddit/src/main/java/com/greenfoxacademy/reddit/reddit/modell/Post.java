@@ -47,4 +47,9 @@ public class Post {
         return this;
     }
 
+    public Post modify(PostDTO postDTO) {
+        this.title = postDTO.getTitle();
+        this.url = postDTO.getUrl();
+        return this;
+    }
 }

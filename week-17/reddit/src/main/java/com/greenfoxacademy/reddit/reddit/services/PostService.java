@@ -9,9 +9,13 @@ public interface PostService {
 
     List<Post> getPosts();
 
-    Post save(PostDTO postDTO, String headerValue);
+    Post save(PostDTO postDTO, String username);
 
     Post upVote(Long id) throws Exception;
 
     Post downVote(Long id) throws Exception;
+
+    Post delete(Long id) throws Exception;
+
+    Post edit(PostDTO postDTO, Long id) throws Exception;
 }
